@@ -40,7 +40,7 @@ from keras import layers
 from scipy.ndimage.filters import gaussian_filter
 from sklearn.metrics import roc_curve, auc
 
-
+os.environ["CUDA_VISIBLE_DEVICES"]="0"
 
 image_size = 256
 emb_dim = 128
@@ -78,6 +78,8 @@ abnormal = np.load('data/abnormal.npy')
 train_normal = np.concatenate((train_normal, train_normal, train_normal), axis=-1)
 test_normal = np.concatenate((test_normal, test_normal, test_normal), axis=-1)
 abnormal = np.concatenate((abnormal, abnormal, abnormal), axis=-1)
+
+gc.collect()
 
 
 def crop(dimension, start, end):
