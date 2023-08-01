@@ -75,6 +75,10 @@ train_normal = np.load('data/train_normal.npy')
 test_normal = np.load('data/test_normal.npy')
 abnormal = np.load('data/abnormal.npy')
 
+train_normal = np.concatenate((train_normal, train_normal, train_normal), axis=-1)
+test_normal = np.concatenate((test_normal, test_normal, test_normal), axis=-1)
+abnormal = np.concatenate((abnormal, abnormal, abnormal), axis=-1)
+
 
 def crop(dimension, start, end):
     # Crops (or slices) a Tensor on a given dimension from start to end
